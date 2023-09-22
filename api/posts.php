@@ -91,12 +91,14 @@ function getAllPosts($db)
 
 function addPost($input, $db)
 {
+    echo json_encode($input);
     $title = $input['title'];
     $status = $input['status'];
     $content = $input['content'];
     $users_id = $input['user_id'];
     $statement = "INSERT INTO posts (title, status, content, user_id)
 VALUES ('$title', '$status', '$content', $users_id)";
+    echo $statement;
 
     $db->query($statement);
     return $db->insert_id;
